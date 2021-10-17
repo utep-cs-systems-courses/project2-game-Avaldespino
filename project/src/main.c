@@ -8,6 +8,7 @@
 void main(){
   configureClocks();
   buzzer_init(); //Setup our buzzer for use
+  led_init();
 
 
 
