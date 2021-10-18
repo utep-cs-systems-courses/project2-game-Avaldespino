@@ -8,6 +8,6 @@
 #define SWITCHES SW1|SW2|SW3|SW4
 
 void switch_init();
-void switch_Interrupt_Handler();
-
+static char check_switches();
+void handle_switches();
 #endif
