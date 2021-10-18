@@ -20,19 +20,17 @@ void stateTwo(){
   //Here we play a song(Raining blood by Slayer. The intro riff) and turn on 10, green on, red off.
   static int timer = 0;
   static int pause = 0;
-  static int tempo = 25;
+  static int tempo = 35;
   static int tempo_state = 0;
   static int play = 1;
   static int i = 0;
   green = 1;
   red = 0;
-  if((++pause > 10) & (i<3)){tempo_state = 0;}
+  if((++pause > 5) & (i<3)){play = 0; pause = 0;}
+  else{play = 1;}
 
   
-  switch(tempo_state){
-  case 0:play = 1; tempo_state = 1; break;
-  case 1:play = 0; tempo_state = 0; break;
-  }
+ 
   if(play){
   if(i == 13) i = 0;
   if(timer++>tempo){
