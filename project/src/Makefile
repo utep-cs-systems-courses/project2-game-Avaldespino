@@ -28,8 +28,10 @@ bomb.elf: ${COMMON_OBJECTS} buzzer.o stateMachine.o wdInterruptHandler.o p2Inter
 
 	${CC} ${CFLAGS} ${LDFLAGS} -o $@ $^
 
+bomb-s.elf: ${COMMON_OBJECTS} stateOne.o buzzer.o stateMachine.o wdInterruptHandler.o p2Interrupt.o leds.o switches.o main.o ../lib/libTimer.a
 
-
+load2: bomb-s.elf
+	msp430loader.sh bomb-s.elf
 load: bomb.elf
 
 	msp430loader.sh bomb.elf
@@ -56,3 +58,5 @@ wdInterruptHandler.o: stateMachine.h
 
 stateMachine.o: leds.h stateMachine.h
 
+
+stateOne.o: leds.h buzzer.h

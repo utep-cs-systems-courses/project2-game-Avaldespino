@@ -3,7 +3,7 @@
 #include "leds.h"
 #include "buzzer.h"
 
-int slayer[] = {156,156,156, 311,880,932,880, 350,880,830, 329,830,783};
+int slayer[] = {156,0,156,0,156,0, 311,880,932,880, 350,880,830, 329,830,783};
 static int buzzer = 1100;
 static int alarm1 = 1400;
 static int alarm2 = 2000;
@@ -32,12 +32,12 @@ void stateTwo(){
   
  
   if(play){
-  if(i == 13) i = 0;
+  if(i == 25) i = 0;
   if(timer++>tempo){
-    timer = 0;
+   timer = 0;
     buzzer_set_period(2000000/slayer[i++]);
-  }
-  }
+    }
+    }
 }
 
 void stateThree(){
