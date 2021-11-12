@@ -9,11 +9,19 @@ static int alarm1 = 1400;
 static int alarm2 = 2000;
 char button = 0;
 void stateOne(){
-  //Here we play a continous buzzer sounds and turn on 01, red on, green off.
+  //Here we play a continous buzzer sounds and turn on 01, red on, dimming green.
   green = 0;
   red = 1;
   buzzer_set_period(buzzer);
-  
+  //Green button is off 80% of the time
+  static int greenState = 0;
+  switch(greenState){
+  case 0: greenState++; green = 1;
+  case 1: greenState++; green = 0;
+  case 2: greenState++; green = 0;
+  case 3: greenState++; green = 0;
+  case 4: greenState++; green = 0;
+}
 }
 
 void stateTwo(){
